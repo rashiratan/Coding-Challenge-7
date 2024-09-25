@@ -63,3 +63,16 @@ const company = {
 };
 //creating a huge hierarchial structure for the function to work with
 
+//Task 2
+function calculateDepartmentSalary(departmentInfo) {
+    let totalSalary =0; //intializing the variable
+    departmentInfo.employees.forEach((employee) => {
+         //going into each employee in the provided department object
+     totalSalary += employee.salary; 
+     //adding each employee's salary to the variable
+    if (employee.subordinates.length > 0) { 
+        //checking if the employee has any suvbordinates
+         totalSalary += calculateDepartmentSalary({employees: employee.subordinates});}
+    });
+    return totalSalary; //returning the total value after all loops and recursion
+ };
