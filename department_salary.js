@@ -76,3 +76,17 @@ function calculateDepartmentSalary(departmentInfo) {
     });
     return totalSalary; //returning the total value after all loops and recursion
  };
+
+ //Task 3
+function calculateCompanySalary(company){
+    let totalCompanySalary = 0; //initializing variable
+    company.departments.forEach((department) => totalCompanySalary += calculateDepartmentSalary(department));
+    //using the calculateDepartmentSales function on each department
+    //and also adding the value to the initialized variable
+    return totalCompanySalary;
+    //outputting the total value after recursion
+}
+
+//testing function and logging results
+console.log(`The department salary for "Marketing" department is $${calculateDepartmentSalary(company.departments[1])}.`);
+console.log(`The salary for the company is $${calculateCompanySalary(company)}.`)
